@@ -1,0 +1,91 @@
+body {
+    margin:0px; /* Убираю отступы. */
+    padding:0px; /* Убираю еще отступы. */
+    font: 14px 'Verdana'; /* Задаю шрифт. */
+}
+ul {
+    list-style: none; /* Убираю маркеры у списка*/
+    display: flex; /* Делаю элементы блочными. */
+    flex-direction: column;
+    margin:0px; /* Убираю отступы. */
+    padding:0px; /* Убираю еще отступы! */
+    width: 240px;
+    top: 0px;
+    left:0px;
+}
+
+ul:after {
+    display: block; /* Делаю элементы блочными. */
+    float: none; /* Убираю выравнивание. */
+    content: ' ';
+    clear: both;
+}
+
+ul.menu > li {
+    float: left; /* Задаю выравнивание и позиционирование. */
+    position: relative; /* Считаем координаты относительно исходного места*/
+}
+
+/*-----------------------------------------------------*/
+#first {
+  color: #fff; /* Задаю белый цвет. */
+  background-color: #ffaeae; /* Задаю цвет. */
+}
+
+#second {
+  color: #fff; /* Задаю белый цвет. */
+  background-color: #ffc27d; /* Задаю цвет. */
+}
+
+#third {
+  color: #fff; /* Задаю белый цвет. */
+  background-color: #ffe18e; /* Задаю цвет. */
+}
+
+#forth {
+  color: #fff; /* Задаю белый цвет. */
+  background-color: #cfe492; /* Задаю цвет. */
+}
+/*-----------------------------------------------------*/
+
+ul.menu > li > a {
+    display: block; /* Делаю элементы блочными: */
+    /* color: #fff; /* Задаю белый цвет. */
+    padding: 10px; /* Задаю отступ 10px. */
+    text-decoration: none; /* Убираю форматирование*/
+    /* background-color: #89d0ff; /* Задаю цвет. */
+}
+
+ul.menu > li > a > :hover {
+    background-color: #3399cc; /* Задаю цвет при наведении. */
+}
+
+ul.submenu {
+    position: absolute;
+    width: 240px;
+    top: 0px;
+    left:240px;
+    display: none; /* Делаю субменю скрытыми. */
+    background-color: white; /* Цвет — белый. */
+}
+
+ul.submenu > li {
+    display: block; /* Блочное расположение элементов*/
+}
+
+ul.submenu > li > a {
+    display: block;  /* Делаю элементы блочными. */
+    text-decoration: none;  /* Убираю форматирование*/
+    padding: 10px;   /* Задаю отступ. */
+    color: #ffffff;  /* Задаю цвет. */
+    background-color: #89d0ff;   /* Еще цвет. */
+}
+
+ul.submenu > li > a:hover {
+    background-color: #3399cc; /* Цвет бэкграунда при наведении. */
+    text-decoration: underline; /* Задаю подчеркивание*/
+}
+
+ul.menu > li:hover > ul.submenu {
+    display: block; /* Делаю элементы блочными. */
+}
