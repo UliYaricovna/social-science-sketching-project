@@ -1,0 +1,90 @@
+.blocks {
+  display: flex;
+  align-content: flex-start;
+  justify-content: space-around;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  transition: .4s ease-in-out;
+}
+
+a {
+  text-decoration: none;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  color: black;
+  position: relative;
+  display: inline-block;
+  border-radius: 50px;
+
+  margin: 80px auto 0;
+}
+
+#first {
+  width: 200px;
+  height: 60px;
+}
+
+#second {
+  width: 100px;
+  height: 60px;
+}
+
+#third {
+  width: 200px;
+  height: 60px;
+}
+
+/* скроем иконку загрузки до наведения на кнопку и текст "Скачать" после наведения на кнопку */
+span {
+  overflow: hidden;
+}
+span, em, i.fa {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 46px; /* за вычетом границ кнопки */
+}
+em {
+  top: 0;
+  font-style: normal;
+}
+
+/* делаем подсказку прозрачной и убираем её со страницы, чтобы она не появлялась при наведении на место, где она должна появиться */
+a:before, a:after{
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+a:before{
+  content: attr(data-tooltip);
+  width: 250px;
+  height: 40px;
+  line-height: 40px;
+  background: #EEE8AA;
+  border-radius: 5px;
+  border: 2px;
+  border-color: #808080;
+  bottom: 70px;
+  left: calc(50% - 70px);
+}
+
+
+a:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #EEE8AA;
+  bottom: 50px;
+  left: calc(50% - 10px);
+}
+
+a:hover:before, a:hover:after {
+  opacity: 1;
+  visibility: visible;
+  transition: .2s ease-in-out .4s; /* сделаем появление подсказки с задержкой */
+}
