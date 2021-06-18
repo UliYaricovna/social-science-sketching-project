@@ -1,0 +1,401 @@
+/*-----------------------------------------------------*/
+/*                   Блок кода меню                    */
+/*-----------------------------------------------------*/
+
+body {
+    margin:0px; /* Убираю отступы. */
+    padding:0px; /* Убираю еще отступы. */
+    font: 14px 'Verdana'; /* Задаю шрифт. */
+}
+
+ul {
+    list-style: none; /* Убираю маркеры у списка*/
+    display: flex; /* Делаю элементы блочными. */
+    flex-direction: row;
+    margin:0px; /* Убираю отступы. */
+    padding:0px; /* Убираю еще отступы! */
+    z-index: 2000;
+}
+
+ul:after {
+    display: block; /* Делаю элементы блочными. */
+    float: none; /* Убираю выравнивание. */
+    content: ' ';
+    clear: both;
+}
+
+ul.menu > li {
+    float: left; /* Задаю выравнивание и позиционирование. */
+    position: relative; /* Считаем координаты относительно исходного места*/
+}
+/*-----------------------------------------*/
+#zero {
+  color: #000; /* Задаю черный цвет. */
+  background-color: #fff; /* Задаю цвет. */
+}
+
+#first {
+  color: #000; /* Задаю черный цвет. */
+  background-color: #ffaeae; /* Задаю цвет. */
+}
+
+#second {
+  color: #000; /* Задаю черный цвет. */
+  background-color: #ffc27d; /* Задаю цвет. */
+}
+
+#third {
+  color: #000; /* Задаю черный цвет. */
+  background-color: #ffe18e; /* Задаю цвет. */
+}
+
+#forth {
+  color: #000; /* Задаю черный цвет. */
+  background-color: #cfe492; /* Задаю цвет. */
+}
+
+#fifth {
+  color: #000; /* Задаю черный цвет. */
+  background-color: #AFEEEE; /* Задаю цвет. */
+}
+
+#sixth {
+  color: #000; /* Задаю черный цвет. */
+  background-color: #a2c0e2; /* Задаю цвет. */
+}
+
+#seventh {
+  color: #000; /* Задаю черный цвет. */
+  background-color: #c6aff4; /* Задаю цвет. */
+}
+
+#eigth {
+  color: #000; /* Задаю черный цвет. */
+  background-color: #edaff4; /* Задаю цвет. */
+}
+/*------------------------------------------*/
+
+ul.menu > li > a {
+    display: block; /* Делаю элементы блочными: */
+    color: #000; /* Задаю черный цвет. */
+    padding: 10px; /* Задаю отступ 10px. */
+    text-decoration: none; /* Убираю форматирование*/
+    background-color: #89d0ff; /* Задаю цвет. */
+}
+
+ul.menu > li > a > :hover {
+    background-color: #3399cc; /* Задаю цвет при наведении. */
+}
+
+ul.submenu {
+    position: absolute;
+    width: 240px;
+    top: 37px;
+    left:0px;
+    display: none; /* Делаю субменю скрытыми. */
+    background-color: white; /* Цвет — белый. */
+}
+
+ul.submenu > li {
+    display: block; /* Блочное расположение элементов*/
+}
+
+ul.submenu > li > a {
+    display: block;  /* Делаю элементы блочными. */
+    text-decoration: none;  /* Убираю форматирование*/
+    padding: 5px;   /* Задаю отступ. */
+    color: #ffffff;  /* Задаю цвет. */
+}
+
+ul.submenu > li > a:hover {
+    background-color: #3399cc; /* Цвет бэкграунда при наведении. */
+    text-decoration: underline; /* Задаю подчеркивание*/
+}
+
+ul.menu > li:hover > ul.submenu {
+    display: block; /* Делаю элементы блочными. */
+}
+
+/*-----------------------------------------------------*/
+/*                 Блок кода подсказок                 */
+/*-----------------------------------------------------*/
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #ffebcd;
+    color: #000;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 110%;
+    left: 50%;
+    margin-left: -70px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ffebcd transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/*-----------------------------------------------------*/
+/*        Блок кода вкладки для полной лекции          */
+/*-----------------------------------------------------*/
+
+.nav {
+    /*  ширна произвольная, не стесняйтесь экспериментировать */
+    width: 350px;
+    min-width: 350px;
+    /* фиксируем и выставляем высоту панели на максимум */
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    /* сдвигаем (прячем) панель относительно правого края страницы */
+    right: -350px;
+    /* внутренние отступы */
+    padding: 15px 0px;
+    /* плавный переход смещения панели */
+    -webkit-transition: right 0.3s;
+    -moz-transition: right 0.3s;
+    transition: right 0.3s;
+    /* определяем цвет фона панели */
+    background: #fcefef;
+    /* поверх других элементов */
+    z-index: 2000;
+}
+
+
+/**
+ * Кнопка переключения панели
+ * тег <label>
+ */
+
+.nav-toggle {
+    /* абсолютно позиционируем */
+    position: absolute;
+    /* относительно правого края панели */
+    right: 350px;
+    /* отступ от верхнего края панели */
+    top: 1em;
+    /* внутренние отступы */
+    padding: 0.5em;
+    /* определяем цвет фона переключателя
+     * чаще вчего в соответствии с цветом фона панели
+    */
+    background: #ffaeae;
+    /* цвет крестика и знака меню */
+    color: #000;
+    /* вид курсора */
+    cursor: pointer;
+    /* размер шрифта */
+    font-size: 1.2em;
+    line-height: 1;
+    /* всегда поверх других элементов страницы */
+    z-index: 2001;
+    /* анимируем цвет текста при наведении */
+}
+
+
+/* определяем текст кнопки
+ * символ Unicode (TRIGRAM FOR HEAVEN)
+*/
+
+.nav-toggle:after {
+    content: '\2630';
+    text-decoration: none;
+}
+
+.nav-toggle:after {
+content: '\2630';
+text-decoration: none;
+}
+
+/**
+ * Скрытый чекбокс (флажок)
+ * невидим и недоступен :)
+ * имя селектора атрибут флажка
+ */
+
+[id='nav-toggle'] {
+    position: absolute;
+    display: none;
+}
+
+
+/**
+ * изменение положения переключателя
+ * при просмотре на мобильных устройствах
+ * когда навигация раскрыта, распологаем внутри панели
+*/
+
+[id='nav-toggle']:checked ~ .nav > .nav-toggle {
+    left: auto;
+    right: 2px;
+    top: 1em;
+}
+
+
+/**
+ * Когда флажок установлен, открывается панель
+ * используем псевдокласс:checked
+ */
+
+[id='nav-toggle']:checked ~ .nav {
+    right: 0;
+    box-shadow:-4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -moz-box-shadow:-4px 0px 20px 0px rgba(0,0,0, 0.5);
+    -webkit-box-shadow:-4px 0px 20px 0px rgba(0,0,0, 0.5);
+    overflow-y: auto;
+}
+
+
+/*
+ * изменение символа переключателя,
+ * привычный крестик (MULTIPLICATION X),
+ * вы можете испльзовать любой другой значок
+*/
+
+[id='nav-toggle']:checked ~ .nav > .nav-toggle:after {
+    content: '\2715';
+}
+
+
+/**
+ * профиксим баг в Android <= 4.1.2
+ * см: http://timpietrusky.com/advanced-checkbox-hack
+ */
+
+body {
+    -webkit-animation: bugfix infinite 1s;
+}
+
+@-webkit-keyframes bugfix {
+    to {
+      padding: 0;
+    }
+}
+
+
+/**
+ * позаботьтимся о средних и маленьких экранах
+ * мобильных устройств
+ */
+
+@media screen and (min-width: 320px) {
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    html,
+    body {
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .nav {
+      width: 100%;
+      box-shadow: none
+    }
+}
+
+
+/**
+ * Формируем стиль заголовка (логотип) панели
+*/
+
+.nav h3 {
+    width: 90%;
+    padding: 0;
+    margin: 10px 0;
+    text-align: center;
+    text-shadow: rgba(255, 255, 255, .1) -1px -1px 1px, rgba(0, 0, 0, .5) 1px 1px 1px;
+    font-size: 1.3em;
+    line-height: 1.3em;
+    opacity: 0;
+
+}
+
+.nav h3 p {
+    color: #dadada;
+    text-decoration: none;
+
+}
+
+
+/*плавное появление заголовка (логотипа) при раскрытии панели */
+
+[id='nav-toggle']:checked ~ .nav h3 {
+    opacity: 1;
+    transform: scale(1, 1);
+    -ms-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+}
+
+
+/**
+ * формируем непосредственно само меню
+ * используем неупорядоченный список для пунктов меню
+ * прикрутим трансфомации и плавные переходы
+ */
+
+.nav > p {
+    display: block;
+    margin: 10px;
+    padding: 0;
+    list-style: none;
+    font-size: 0.9em;
+    text-indent: 20px; /* Отступ первой строки в пикселах */
+}
+
+/* фон затемнения на основной контент
+ * при этом элементы блокируютя
+ * спорная такая фича, если оно вам надо
+ * просто раскомментируйте
+*/
+
+/*
+.mask-content {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    visibility: hidden;
+    opacity: 0;
+}
+
+[id='nav-toggle']:checked ~ .mask-content {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity .5s, visibility .5s;
+    transition: opacity .5s, visibility .5s;
+}
+*/
